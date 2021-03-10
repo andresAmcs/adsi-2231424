@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="" method="post">
+        <fieldset>
+            <legend><h2>Infomation</h2></legend>
+            <!--  -->
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <br>
+            <!--  -->
+            <label for="bank_acount">Bank account</label>
+            <input type="password" name="bank" id="bank">
+            <br>
+            <!--  -->
+            <label for="image">image of the best soccer player</label>
+            <input type="file" id="image" name="image">
+            <br>
+            <!--  -->
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender">
+                <option value="">Select...</option>
+                <option value="F">Female</option>
+                <option value="M">Male</option>
+                <option value="U">Unicorn</option>
+
+            </select>
+            <br>
+            <!--  -->
+            <label for="description">Description:</label>
+            <br>
+            <textarea name="description" id="description" cols="30" rows="4"></textarea>
+            <!--  -->
+        </fieldset>
+        <fieldset>
+            <legend><h2>Institutional Data</h2></legend>
+            <!--  -->
+            <label>Select Goalkepper</label>
+            <br>
+            <label>
+                <input type="checkbox" name="goalkepper"> Manuel Never
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="goalkepper"> Gianluigi buffon
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" name="goalkepper"> Jan Oblack
+            </label>
+            <br><br>
+            <!--  -->
+            <label>Select Favorites Position:</label>
+            <br>
+            <label>
+                <input type="radio" name="position"> Goalkepper
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="position"> Defender
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="position"> Midfielder
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="position">Forward
+            </label>
+            <br><br>
+            <!--  -->
+            <input type="submit" value="SEND DATA">
+            <input type="reset" value="RESET DATA">
+            <!--  -->
+        </fieldset>
+    </form>
+</body>
+</html>
