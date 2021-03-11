@@ -5,6 +5,6 @@
 
 - **01**  [Emmet](01-emmet/)
 - **02**  [HTML 4.01](02-html4.01/)
-- **03**  [HTML 5](imagenes/image-1.jpeg)
+- **03**  [HTML 5](03-html5)
 - **04**  [CSS 2.1](imagenes/image-1.jpeg)
 - **05**  [CSS 3](imagenes/image-1.jpeg)

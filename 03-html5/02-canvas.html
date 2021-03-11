@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h2>Square</h2>
+	<canvas id="square"></canvas>
+	<h2>Rectangle</h2>
+	<canvas id="rectangle"></canvas>
+	<h2>Triangle</h2>
+	<canvas id="triangle"></canvas>
+	<h2>Circle</h2>
+	<canvas id="circle"></canvas>
+	<h2>Heart</h2>
+	<canvas id="heart"></canvas>
+	<h2>Text</h2>
+	<canvas id="text"></canvas>
+
+	<script type="text/javascript">
+		
+		/*Square---*/
+		var canvas = document.getElementById('square');
+		var contxt = canvas.getContext('2d');
+		contxt.fillStyle = '#18C24E';
+		contxt.fillRect(0,0,100,100);
+		
+		/*Rectangle---*/
+		var canvas = document.getElementById('rectangle');
+		var contxt = canvas.getContext('2d');
+		contxt.fillStyle = '#18C24E';
+		contxt.fillRect(0,30,150,75);
+		
+		/*Triangle---*/
+		 var canvas = document.getElementById('triangle');
+    	var ctx = canvas.getContext('2d');
+    	ctx.fillStyle = "#18A24E"
+		ctx.beginPath();
+    	ctx.moveTo(100,10);
+    	ctx.lineTo(0,155);
+    	ctx.lineTo(200,155);
+    	ctx.closePath();
+    	ctx.fill();
+
+    	/*Circle --*/
+    	var canvas = document.getElementById('circle');
+    	var ctx = canvas.getContext('2d');
+    	ctx.fillStyle = "#23D24E"
+    	contxt.beginPath();
+    	ctx.arc(360,70,50,0,(Math.PI/180)*360,true);
+    	
+    	
+    	
+	</script>
+</body>
+</html>
