@@ -50,6 +50,21 @@
     	ctx.fillStyle = "#23D24E"
     	contxt.beginPath();
     	ctx.arc(360,70,50,0,(Math.PI/180)*360,true);
+
+    	/* Heart ------------------*/
+    	var canvas = document.getElementById('heart');
+    	var contxt = canvas.getContext('2d');
+        contxt.fillStyle = '#23aa34';
+        //corazon 
+        contxt.beginPath();
+        contxt.moveTo(75, 40);
+        contxt.bezierCurveTo(75,37,70,25,50,25);
+        contxt.bezierCurveTo(20,25,20,62.5,20,62.5);
+        contxt.bezierCurveTo(20,80,40,102,75,120);
+        contxt.bezierCurveTo(110,102,130,80,130,62.5);
+        contxt.bezierCurveTo(130,62.5,130,25,100,25);
+        contxt.bezierCurveTo(85,25,75,37,75,40);
+        contxt.fill();
     	
     	
     	
