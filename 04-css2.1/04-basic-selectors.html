@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Basic Selectors</title>
+	<style>
+		*{
+			border: 1px dotted red;
+			margin: 10px;
+			padding: 10px;
+		}
+		h2{
+			background-color:cyan;
+		}
+		p span{
+			color:blue;
+			text-transform:uppercase; 
+			margin:0px;
+			padding:0px; 
+		}
+		.highlight{
+			background-color:green;
+		}
+		#elem04{
+			background-color:cyan;
+		}
+	</style>	
+</head>
+<body>
+	<h1>Basic Selectors</h1>
+	<hr>
+	<h2>Universal Selector: *</h2>
+	<div>
+		<p>
+			Lorem ipsum dolor sit amet consectetur, adipisicing, elit. Expedita est possimus ullam nostrum ad, itaque, officia, repellat quisquam, explicabo quasi officiis delectus beatae omnis autem qui eveniet temporibus odit cupiditate.
+		</p>
+	</div>
+	<h2>Type/Label Selector: h</h2>
+	<h2>Descending Selector: p span</h2>
+	<div>
+		<p>
+			<span>Lorem ipsum dolor </span>sit amet consectetur, adipisicing, elit. Expedita est possimus ullam nostrum ad, itaque, officia, repellat quisquam, <span>explicabo quasi officiis delectus</span> beatae omnis autem qui eveniet temporibus odit cupiditate.
+		</p>
+	</div>
+	<h2 class="highlight">Class Selector:.highlight</h2>
+	<h2>ID Selector: #elem04</h2>
+	<ol>
+		<li id="elem01">Element 1</li>
+		<li id="elem02">Element 2</li>
+		<li id="elem03">Element 3</li>
+		<li id="elem04">Element 4</li>
+		<li id="elem05">Element 5</li>
+	</ol>
+	<h2>Combine Selector: dinv.box p.first</h2>
+	<div class="box">
+		<p class="first">lorem</p>
+		<p>lorem</p>
+		<p>lorem</p>
+		<p>lorem</p>
+		<p>lorem</p>
+	</div>
+
+</body>
+</html>

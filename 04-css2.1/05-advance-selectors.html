@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Advance Selectors</title>
+	<style>
+		ul>li{
+			background-color:chocolate;
+			margin: 5px;
+			padding: 5px;
+		}
+		ul li+li+li{
+			background-color: green;
+		}
+		li[class]{
+			background-color: violet;
+		}
+	</style>
+</head>
+<body>
+	<h1>Advanced Selectors</h1>
+	<h2>Children Selector: ul>li</h2>
+	<h2>Adjacent Selector: ul li+li+li</h2>
+	<h2>Attribute Selector: li[class=highlight]</h2>
+
+	<ol>
+		<li>
+			Falsos
+			<ul>
+				<li class="highlight">Petroski</li>
+				<li>El Tibio</li>
+				<li>El Paraco</li>
+				<li>Samper</li>
+			</ul>
+		</li>
+		<li>
+			Memes Andantes
+			<ul>
+				<li class="highlight">Antanas Mocos</li>
+				<li>Malvado Doctor Tocino</li>
+				<li>Martuchis</li>
+				<li>Santos</li>
+			</ul>
+		</li>
+	</ol>
+
+</body>
+</html>
