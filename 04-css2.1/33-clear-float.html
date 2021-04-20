@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clear Float</title>
+	<style>
+		main{
+			margin: 40px auto;
+			width: 400px;
+		}
+		section.bigbox{
+			border: 2px solid #198; 
+			padding: 0px 8px;			
+		}
+		section.bigbox img{
+			float: left;
+		}
+		section.bigbox p{
+			border: 1px solid #198;
+		}
+		section.bigbox p.clear{
+			clear: left;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h2>Float Position in the Imagen</h2>
+		<section class="bigbox">
+			<img src="../imagenes/guncod.png" alt="">
+			<p>Lorem, ipsum dolor sit, amet consectetur adipisicing elit. Nobis nemo sed inventore quaerat saepe eos quas similique harum ea quasi?</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quo dicta ab corporis deserunt iste modi eum numquam autem asperiores?</p>
+		</section>
+		<h2>Paragraph 2 with clear</h2>
+		<section class="bigbox">
+			<img src="../imagenes/guncod.png" alt="">
+			<p>Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Recusandae tempore, earum quae in architecto delectus error sapiente quas perferendis repellendus?</p>
+			<p class="Clear">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam blanditiis fugiat voluptas sapiente nesciunt debitis corporis, est omnis dignissimos, velit.</p>
+		</section>
+	</main>
+</body>
+</html>
