@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pseudo Classes</title>
+	<style>
+		main{
+			margin: 40px auto;
+			position: relative;
+			width: 400px;
+		}
+		menu {padding-left: 0px;}
+		menu ul{
+			list-style: none;
+			padding-left: 0px;
+		}
+		menu ul li{
+			display: inline-block;
+			vertical-align: top;
+		}
+		menu ul li a:link,
+		menu ul li a:visited{
+			background-color: #165a;
+			color: #fff
+			display: block;
+			padding: 10px 20px;
+			text-decoration: none;
+		}
+		menu ul li a:hover{
+			background-color: #900
+		}
+		menu ul li a:active{
+			background-color: #550
+		}
+		menu ul li:first-child a{
+			background-color: #150
+			color:#180;
+		}
+		/*--*/
+		 input {
+            border: 1px solid #1ABC9C;
+            padding: 10px 20px;
+            outline: none;
+        }
+        input:focus {
+            background-color: #F2D7D5;
+            border: 1px solid #C0392B;
+        }
+        /* - - - */
+        p:first-line {
+            background-color: #E59866;
+        }
+        p:first-letter {
+            font-size: 4em;
+        }
+        /* - - - */
+        div.box {
+            background-color: #3a6283;
+            height: 100px;
+            width: 100px;
+        }
+        div.box:after {
+            background-color: #d459ba88;
+            content: "🍫";
+            height: 100px;
+            position: absolute;
+            left: 20px;
+            width: 100px;
+        }
+        div.box:before {
+            background-color: #72d45988;
+            content: "Candy";
+            height: 100px;
+            position: absolute;
+            left: 40px;
+            width: 100px;
+	</style>
+</head>
+<body>
+	<main>
+	<h3>(:link, :visited, :active, :hover, :first-child)</h3>
+	<menu>
+		<ul>
+			<li><a href="">Home</a></li>
+			<li><a href="">About</a></li>
+			<li><a href="">Services</a></li>
+			<li><a href="">Contact</a></li>
+		</ul>
+	</menu>
+	<h3>:focus</h3>
+	<input type="text" placeholder="Ingresar Nombre y Apellidos">
+	<h3>:first-line :first-letter</h3>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut quasi est laborum hic ratione minima explicabo quae repellendus optio deleniti iusto corporis, magni perferendis eveniet itaque repudiandae atque. Tenetur, soluta?</p>
+	<div class="box"></div>
+	</main>
+</body>
+</html>

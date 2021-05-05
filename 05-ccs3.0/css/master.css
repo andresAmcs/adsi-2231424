@@ -1,0 +1,27 @@
+
+body {
+    background-color: #4e7a81;
+    color: rgb(170, 130, 130);
+    font: 16px Arial;
+}
+
+main {
+    background-color: rgb(220, 223, 186);
+    border: 2px solid #5d5e42;
+    margin: 20px auto;
+    padding: 10px;
+    width: 800px;
+}
+
+main h1 {
+    background-color: #40503e;
+    border-bottom: 10px solid #5d745a;
+    color: #fff;
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+}
+
+main h3 {
+    text-align: center;
+}
