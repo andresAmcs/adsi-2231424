@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Responsive</title>
+    <style>
+        main{
+            margin: 40px auto;
+			font-family: Arial, Helvetica, sans-serif;
+            *width: 1170px;
+            padding: 0px 80px ;
+        }
+        main section.encabezado{
+            height: 200px;
+            background: url(../imagenes/logo-nike.jpg) no-repeat;
+            background-position: 50px 15px;
+            margin: 0px auto;
+            width: 250px;
+        }
+        main section.products{
+            *width: 1170px;
+            margin: 0px auto;
+            
+        }
+        main section.products li{            
+            display: inline-block;            
+        }
+        main section.products a{
+            display: inline-block;
+            margin: 25px ;
+            overflow: hidden;
+        }
+        main section.products a.tenis{
+            background: url(../imagenes/tenis-nike.jpg) no-repeat;
+            height: 250px;
+            width: 250px;
+            margin-left: 0px;
+        }
+        main section.products a.deportes{
+            background: url(../imagenes/ropa-deportiva-nike.png);
+            height: 250px;            
+            width: 250px;
+        }
+        main section.products a.implementacion{
+            background: url(../imagenes/implementos-nike.jpg);
+            height: 250px;
+            width: 250px;
+        }
+        main section.products a.ropa{
+            background: url(../imagenes/ropa-nike.jpg);
+            height: 250px;
+            width: 250px;
+            margin-right: 0px;
+        }                        
+        main section.products a div{            
+            color: #fff; 
+        }
+        main section.products a div li{
+            text-decoration: none;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);                                    
+            vertical-align:-222px;            
+            padding:10px 95px;                                   
+        }
+
+        main section.products a div li:hover{
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 30px 95px;
+            vertical-align: -202px;
+            transition: all 0.2s ease-in;   
+        }
+
+        main section.seccionBaja div{            
+        padding: 0px 87px 0px 0px ;
+        display: inline-block;                
+        }
+
+        main section.seccionBaja div.linea{
+        border: 1px solid #999;
+        height: 250px;
+        margin-bottom: 40px;
+        width: 1075px;
+        }
+        
+        main section.seccionBaja div.linea div.image{
+            background: url(../imagenes/deportiva.jpg) no-repeat center;
+            background-size: cover;
+            height: 250px;
+            width: 250px;
+        }
+
+        main section.seccionBaja div.linea div.text{
+            height: 250px;
+            width: 550px;
+            vertical-align:14px;
+            text-align: justify;
+            position: static;
+        }
+
+        main section.seccionBaja div.linea div.text p{
+            line-height: 25px;
+        }
+        main section.seccionBaja div.colaboraciones{
+        border: 1px solid #999;
+        height: 250px;    
+        width: 1075px;
+        }
+
+        
+        main section.seccionBaja div.colaboraciones div.image{
+            background: url(../imagenes/jordan.jpg) no-repeat center;
+            background-size: cover;
+            height: 250px;
+            width: 250px;
+        }
+
+
+        main section.seccionBaja div.colaboraciones div.text{
+            height: 250px;
+            width: 550px;
+            vertical-align:14px;
+            text-align: justify;
+        }
+
+        main section.seccionBaja div.colaboraciones div.text p{
+            line-height: 25px;
+        }
+
+        @media(max-width: 1024px){                                      
+            main section.encabezado{
+                background: url(../imagenes/logo-nike.jpg);
+                background-position: -190px 20px;
+            }          
+            main section.seccionBaja div.linea{
+                width: 556px;
+                
+            } 
+            main section.seccionBaja div.linea div.text{
+            height: 250px;
+            width: 220px;
+            }
+            main section.seccionBaja div{                        
+            display: inline-block;                
+        }
+        }
+
+    </style>
+</head>
+<body>
+
+<main>
+
+    <!--Encabezado-->
+    <section class="encabezado"></section>
+
+    <!-- products -->
+    <section class="products">
+
+        <a href="" class="tenis">
+            <div>
+                <li>Productos</li>
+            </div>
+        </a>
+        <a href="" class="deportes">
+            <div>
+                <li>Productos</li>
+            </div>
+        </a>
+        <a href="" class="implementacion">
+            <div>
+                <li>Productos</li>
+            </div>
+        </a>
+        <a href="" class="ropa">
+            <div>
+                <li>Productos</li>
+            </div>
+        </a>        
+    </section>
+
+    <!--productos 2 - seccion baja-->
+    <section class="seccionBaja">
+
+        <!-- linea deportiva -->
+        <div class="linea">
+            <div class="image"></div>
+            <div class="text">
+                <h1>Linea Deportiva</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure ea recusandae aliquid itaque et obcaecati expedita sint corrupti dolores nam earum alias maiores perspiciatis iusto id eius modi error sapiente quisquam, beatae debitis. Minus officiis perspiciatis est similique! Reiciendis vitae molestias nam animi nostrum cupiditate blanditiis! Vitae non quae quasi laboriosam nobis neque consequatur deleniti iure voluptatem. Repellendus ab illo esse ea odit sint error.</p>
+            </div>
+        </div>  
+
+        <!-- colaboraciones jordan -->
+        <div class="colaboraciones">
+            <div class="image"></div>
+            <div class="text">
+                <h1>Colaboraciones Jordan</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae deserunt modi quod accusantium enim ea totam pariatur, doloremque ex facilis blanditiis exercitationem suscipit eum mollitia consectetur excepturi! Excepturi nam rerum ea quibusdam iure perferendis adipisci, et animi, minus porro natus. Quaerat porro, nam cum recusandae tempora veniam quo aliquam vitae eaque, eligendi tempore nobis consequuntur quas aut distinctio inventore ullam!</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>

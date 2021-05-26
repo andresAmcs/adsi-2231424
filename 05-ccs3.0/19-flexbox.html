@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <link rel="stylesheet" href="css/master.css">
+    <style>
+    button{
+        background: rgb(56, 54, 155);
+        border: none;
+        color: #fff;
+        border-radius: 10px;
+        font-size: 1em;
+        padding: 10px 0px;
+        width: 120px;
+    }
+    div.demo{
+        min-height: 275px;
+        padding: .5rem;
+        box-sizing: border-box;
+        border: 2px solid rgb(0, 238, 255);
+    }
+    div.demo div.parent{
+        position: relative;
+        grid-auto-columns: 1fr;
+        overflow: hidden;
+        border: 1px dashed rgb(13, 11, 138);
+    }
+    div.demo div.parent.df { display: flex; }
+    div.demo div.parent.if { display: inline-flex; }
+    div.demo div.child{
+        position: relative;
+        min-width: 2.5rem;
+        min-height: 2.5rem;
+        padding: .5rem;
+        border: 1px solid rgb(13, 11, 138);
+        background-color: rgb(56, 54, 155);
+        box-sizing:border-box;
+    }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1><span><a href="index.html">&larr;</a></span>FlexBox</h1>
+        <h2>Flex Containers (display)</h2>
+        <button id="d-f">flex</button>
+        <button id="d-if">inline-flex</button>
+        <div class="demo">
+            SomeText
+            <div class="parent">
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
