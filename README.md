@@ -7,4 +7,5 @@
 - **02**  [HTML 4.01](02-html4.01/)
 - **03**  [HTML 5](03-html5)
 - **04**  [CSS 2.1](04-css2.1)
-- **05**  [CSS 3](imagenes/image-1.jpeg)
+- **05**  [CSS 3](05-css3.0/)
+- **05**  [PUG](06-pug/)

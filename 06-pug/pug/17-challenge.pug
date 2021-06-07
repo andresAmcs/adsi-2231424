@@ -1,0 +1,16 @@
+doctype
+head
+  title Pug
+  style.
+    ul{
+    width:800px;
+    margin:0px auto;
+    }
+    li{    
+    margin:4px;
+    height:40px;
+    }
+body     
+    ul
+        each val, index in ['#E9F7EF','#D4EFDF','#A9DFBF','#7DCEA0','#52BE80','#27AE60','#229954','#1E8449','#196F3D','#145A32']
+            li(style='background-color:'+val)
