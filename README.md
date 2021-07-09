@@ -10,3 +10,4 @@
 - **05**  [CSS 3](05-css3.0/)
 - **06**  [PUG](06-pug/)
 - **07**  [SASS](07-sass/)
+- **08**  [Javascript](08-javascript/)

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Calculator JS</title>  
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        div.calculator {
+            background: url(css/imagenes/desktop.svg) no-repeat center;
+            height: 736px;
+            margin: 0 auto 40px auto;
+            position: relative;
+            transition: all 0.5s ease-out;
+            width: 414px;
+        }   
+        div.calculator nav.mode {
+            left: 128px;
+            position: absolute;            
+            width: 160px;
+        }
+        div.calculator nav.mode a {
+            display: inline-block;
+            height: 75px;
+            transition: transform 0.2s ease-in;
+            width: 85px;
+        }
+        div.calculator nav.mode a#dark:hover {
+            transform: scale(1.05) translateX(2px);
+        }
+        div.calculator nav.mode a#light:hover {
+            transform: scale(1.05) translateX(-2px);
+        }
+        div.calculator nav.mode a:last-child {
+            margin-left: -15px;
+        }
+        div.calculator nav.mode a#light {
+            background: url(css/imagenes/ligh_mode.svg) no-repeat center;
+        }
+        div.calculator nav.mode a#dark {
+            background: url(css/imagenes/dark_mode.svg) no-repeat center;
+        }        
+        div.calculator div.display {            
+            position: absolute;
+            top: 120px;
+            text-align: right;
+            right: 70px;
+            width: 300px;
+        }
+        div.calculator div.display p#operation {
+            color: #fff;            
+            font-size: 20px;
+            margin: 0;            
+        }
+        div.calculator div.display h4#answer {
+            color: #fff;            
+            font-size: 60px;            
+            margin: 0;
+            padding-top: 25px;
+        }        
+        div.calculator nav.buttons {
+            left: 20px;
+            position: absolute;
+            top: 250px;
+            width: 395px;
+        }
+        div.calculator nav.buttons ul::selection {
+            background-color: transparent;
+        }
+        div.calculator nav.buttons ul {
+            list-style: none;
+            margin-left: 15px;
+            padding: 0;
+            
+        }
+        div.calculator nav.buttons ul li {            
+            display: inline-block;
+            height: 70px;
+            width: 70px;
+            margin: 0px 20px 20px 0px;            
+            transition: transform 0.1s ease-in;
+        }
+        div.calculator nav.buttons ul li:hover {
+            cursor: pointer;
+            transform: scale(1.25);
+            opacity: 1;
+        }                
+        div.calculator nav.buttons ul li#btn-borrarTodo {
+            background: url(css/imagenes/delete_all.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-borrar {
+            background: url(css/imagenes/delete.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-potencia {
+            background: url(css/imagenes/pontecia.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-division {
+            background: url(css/imagenes/division.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-1 {
+            background: url(css/imagenes/btn_1.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-2 {
+            background: url(css/imagenes/btn_2.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-3 {
+            background: url(css/imagenes/btn_3.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-multiplicacion {
+            background: url(css/imagenes/multiplicacion.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-4 {
+            background: url(css/imagenes/btn_4.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-5 {
+            background: url(css/imagenes/btn_5.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-6 {
+            background: url(css/imagenes/btn_6.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-resta {
+            background: url(css/imagenes/suma.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-7 {
+            background: url(css/imagenes/btn_7.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-8 {
+            background: url(css/imagenes/btn_8.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-9 {
+            background: url(css/imagenes/btn_9.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-suma {
+            background: url(css/imagenes/resta.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-porcentaje {
+            background: url(css/imagenes/porcentaje.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-0 {
+            background: url(css/imagenes/btn_0.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-punto {
+            background: url(css/imagenes/punto.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-igual {
+            background: url(css/imagenes/igual.svg) no-repeat center;
+        }
+
+        /* Mode dark*/
+
+        div.calculator.dark {
+            background: url(css/imagenes/desktop_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.mode a#light {
+            background: url(css/imagenes/ligh_mode_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.mode a#dark {
+            background: url(css/imagenes/dark_mode_dm.svg) no-repeat center;
+        }                
+        div.calculator.dark nav.buttons ul li#btn-borrarTodo {
+            background: url(css/imagenes/delete_all_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-borrar {
+            background: url(css/imagenes/delete_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-potencia {
+            background: url(css/imagenes/potencia_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-division {
+            background: url(css/imagenes/division_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-1 {
+            background: url(css/imagenes/btn_1_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-2 {
+            background: url(css/imagenes/btn_2_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-3 {
+            background: url(css/imagenes/btn_3_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-multiplicacion {
+            background: url(css/imagenes/multiplicacion_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-4 {
+            background: url(css/imagenes/btn_4_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-5 {
+            background: url(css/imagenes/btn_5_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-6 {
+            background: url(css/imagenes/btn_6_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-resta {
+            background: url(css/imagenes/resta_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-7 {
+            background: url(css/imagenes/btn_7_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-8 {
+            background: url(css/imagenes/btn_8_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-9 {
+            background: url(css/imagenes/btn_9_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-suma {
+            background: url(css/imagenes/suma_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-porcentaje {
+            background: url(css/imagenes/porcentaje_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-0 {
+            background: url(css/imagenes/btn_0_dm.svg) no-repeat center;
+        }
+        div.calculator.dark nav.buttons ul li#btn-punto {
+            background: url(css/imagenes/punto_dm.svg) no-repeat center;
+        }
+        div.calculator nav.buttons ul li#btn-igual {
+            background: url(css/imagenes/igual_dm.svg) no-repeat center;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Challenge Calculator JS</h1>
+        </header>
+        <section>
+            <div class="calculator">
+                <nav class="mode">
+                    <a href="javascript:;" id="light"></a>
+                    <a href="javascript:;" id="dark"></a>
+                </nav>
+                <div class="display">
+                    <p id="operation"></p>
+                    <h4 id="answer"></h4>
+                </div>
+                <nav class="buttons">
+                    <ul>
+                        <li id="btn-borrarTodo"></li>
+                        <li id="btn-borrar"></li>
+                        <li id="btn-potencia"></li>
+                        <li id="btn-division"></li>
+                        <li id="btn-1"></li>
+                        <li id="btn-2"></li>
+                        <li id="btn-3"></li>
+                        <li id="btn-multiplicacion"></li>
+                        <li id="btn-4"></li>
+                        <li id="btn-5"></li>
+                        <li id="btn-6"></li>
+                        <li id="btn-resta"></li>
+                        <li id="btn-7"></li>
+                        <li id="btn-8"></li>
+                        <li id="btn-9"></li>
+                        <li id="btn-suma"></li>
+                        <li id="btn-porcentaje"></li>
+                        <li id="btn-0"></li>
+                        <li id="btn-punto"></li>
+                        <li id="btn-igual"></li>     
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        var numCaracteres=0;
+        var operation=document.getElementById('operation');
+        var answer=document.getElementById('answer');
+
+        const btn0=document.getElementById('btn-0');
+        const btn1=document.getElementById('btn-1');
+        const btn2=document.getElementById('btn-2');
+        const btn3=document.getElementById('btn-3');
+        const btn4=document.getElementById('btn-4');
+        const btn5=document.getElementById('btn-5');
+        const btn6=document.getElementById('btn-6');
+        const btn7=document.getElementById('btn-7');
+        const btn8=document.getElementById('btn-8');
+        const btn9=document.getElementById('btn-9');
+
+        const btnBorrarTodo=document.getElementById('btn-borrarTodo');
+        const btnBorrar=document.getElementById('btn-borrar');
+
+        const btnPotencia=document.getElementById('btn-potencia');
+        const btnDivision=document.getElementById('btn-division');
+        const btnMultiplicacion=document.getElementById('btn-multiplicacion');
+        const btnSuma=document.getElementById('btn-suma');
+        const btnResta=document.getElementById('btn-resta');
+        const btnPorcentaje=document.getElementById('btn-porcentaje');
+        const btnPunto=document.getElementById('btn-punto');
+        const btnIgual=document.getElementById('btn-igual');
+
+
+        const light=document.getElementById('light');
+        const dark=document.getElementById('dark');
+        const desktop=document.querySelector('div.calculator');
+
+
+
+        function maxCaracteres(){
+            if(numCaracteres<=22){
+                numCaracteres++;
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+        
+        function agregarCaracter(c){  
+            if(maxCaracteres()){
+            operation.innerText+=c;
+             }
+        }
+
+        function borrarTodo(){
+            operation.innerText='';
+            answer.innerText='';
+            numCaracteres=0;
+        }
+
+        function borrar(){
+            
+        }
+
+        btn1.onclick=function(){
+            agregarCaracter(1);
+        }        
+        btn2.onclick=function(){
+            agregarCaracter(2);
+        }
+        btn3.onclick=function(){
+            agregarCaracter(3);
+        }
+        btn4.onclick=function(){
+            agregarCaracter(4);
+        }
+        btn5.onclick=function(){
+            agregarCaracter(5);
+        }
+        btn6.onclick=function(){
+            agregarCaracter(6);
+        }
+        btn7.onclick=function(){
+            agregarCaracter(7);
+        }
+        btn8.onclick=function(){
+            agregarCaracter(8);
+        }
+        btn9.onclick=function(){
+            agregarCaracter(9);
+        }
+        btn0.onclick=function(){
+            agregarCaracter(0);
+        }
+
+        btnBorrarTodo.onclick=function(){
+            borrarTodo();
+        }
+
+        btnBorrar.onclick=function(){
+            borrar();
+        }
+
+        light.onclick=function(){
+            desktop.classList.remove('dark');
+        }
+        dark.onclick=function(){
+            desktop.classList.add('dark');
+        }
+
+    </script>
+
+</body>
+</html>
