@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Challenge Conditionals</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        main{
+            font-size: 16px;
+        }
+        figure.conditionals{            
+            *background: url(/imagenes/bg.png);
+            background-color: #65e063;
+            border-radius: 50px;
+            height: 690px;
+            width: 370px;
+            margin: 0px auto;
+            position: relative;  
+            z-index: 4;        
+        }
+        figure.conditionals h2,
+        figure.conditionals h4{
+            font-family: Montserrat;
+            font-style: normal;
+            position: absolute;
+            background: none;            
+        }
+        figure.conditionals h2{
+            font-weight: 800;
+            font-size: 30px;            
+            text-align: center;
+            top: 7px;
+            color: #0D7611;
+        }
+        figure.conditionals h4{
+            font-weight: 700;
+            font-size: 18px;            
+            text-align: center;
+            color:#001AFF;
+            top: 125px;
+            left: 88px;
+        }
+        figure.conditionals h4.form{
+            font-weight: 400;
+            font-size: 15px;            
+            text-align: center;
+            color:#0D7611;
+            top: 125px;
+            left: 88px;
+        }
+        figure.conditionals h4#Fullname{
+            position: absolute;
+            top: 325px;
+            left: 37px;
+        }
+        figure.conditionals h4#Birthday{
+            position: absolute;
+            top: 433px;
+            left: 36px;
+        }
+        figure.conditionals input[type=checkbox]{
+            -webkit-appearance: none;  
+            position: absolute;          
+            width: 100px;
+            height: 122px;
+            
+        }  
+        figure.conditionals input.Gender:hover{
+            transform: scale(1.15);
+            border: none;           
+        } 
+        figure.conditionals input#Male{
+            background: transparent url(/imagenes/Male.png) no-repeat center;
+            top: 182px;
+            left: 231px;
+        }
+        figure.conditionals input#Female{
+            background: transparent url(/imagenes/Female.png) no-repeat center;
+            top: 182px;
+            left: 31px;
+        }   
+        figure.conditionals input#Male:checked{
+            background: transparent url(/imagenes/MaleVerify.png) no-repeat center;
+            width: 116px;
+        }
+        figure.conditionals input#Female:checked{
+            background: transparent url(/imagenes/FemaleVerify.png) no-repeat center;
+            width: 116px;
+        } 
+        figure.conditionals input.form{
+            position: absolute;  
+            outline: none;            
+            height: 50px;
+            width: 300px;
+            text-align: center;
+            border: 0px;
+            font-weight: 400;
+            font-size: 15px;            
+        }       
+        figure.conditionals input[type=text]{
+            background: transparent url(/imagenes/FullName.png) no-repeat;
+            top: 366px;
+            left: 32px;
+            color:#0D7611;
+        }
+        figure.conditionals input[type=date]{            
+            background: transparent url(/imagenes/BirthDay.png) no-repeat;
+            color:#0D7611;
+            top: 474px;
+            left: 32px;
+                      
+        }        
+        figure.conditionals input[type=date]::-webkit-calendar-picker-indicator { 
+            background: url(/imagenes/calendar_icon.png);
+            right: 15px;
+            bottom: 15px;
+            position: absolute;
+         }
+         figure.conditionals button{
+             background: transparent url(/imagenes/Verify.png);
+             width: 300px;
+             height: 50px;
+             position: absolute;
+             top: 595px;
+             left: 35px;
+            border: 0px;
+         }
+         figure.conditionals button:hover{
+            transform: scale(1.1);
+            transition: 0.5s ease-in-out;
+         }
+
+         /*Frame mayor de edad*/
+         figure.frame18{            
+            background-color: #FF0000;
+            border-radius: 50px;
+            height: 690px;
+            width: 370px;
+            margin: 0px auto;
+            position: relative;
+            z-index: 3;
+            top: -690px;
+         }
+         figure.frame18 input#Male{
+            background: transparent url(/imagenes/male\ 1.png) no-repeat center;
+            top: 36px;
+            border-radius: 25px;
+            left: 133px;
+            position: absolute;          
+            width: 100px;
+            height: 100px;
+            border: none;
+        }
+        figure.frame18 input[type=text]{
+            background: transparent;
+            position: absolute;
+            top: 140px;
+            left: 75px;
+            border: none;
+            color: #001AFF;
+            outline: none;
+            font-weight: 500px;
+            font-size: 18px;
+            text-align: center;
+        }
+        figure.frame18 input.Alert{
+            background: transparent url(/imagenes/AlertMale18.png) no-repeat;
+            position: absolute;
+            top: 246px;
+            left: 35px;
+            border: none;
+            color: #001AFF;
+            outline: none;
+            width: 301px;
+            height: 100px;
+            font-weight: 500px;
+            font-size: 18px;
+        }
+        figure.frame18 div div.gun{
+            width: 90px;
+            height: 90px;
+            background: url(/imagenes/Sniper\ Rifle.png);
+            position: absolute;
+            top: 400px;
+            left: 80px;
+        }
+        figure.frame18 div div.gun2{
+            width: 90px;
+            height: 90px;
+            background: url(/imagenes/Crossed\ Arrows.png);
+            position: absolute;
+            top: 400px;
+            left: 200px;
+        }
+        figure.frame18 button{
+            height: 50px;
+            width: 300px;
+            background: transparent url(/imagenes/Back.png);
+            position: absolute;
+            border: none;
+            top: 600px;
+            left: 35px;
+        }
+        figure.frame18 button:hover{
+            transform: scale(1.1);
+            transition: 0.5s ease-in-out;
+         }
+
+        /*menores de edad hombres*/
+        figure.frame17{            
+            background-color: #05FF00;
+            border-radius: 50px;
+            height: 690px;
+            width: 370px;
+            margin: 0px auto;
+            position: relative;
+            z-index: 2;
+            top: -1381px;
+         }
+         figure.frame17 input#Male{
+            background: transparent url(/imagenes/male\ 1.png) no-repeat center;
+            top: 36px;
+            border-radius: 25px;
+            left: 133px;
+            position: absolute;          
+            width: 100px;
+            height: 100px;
+            border: none;
+        }
+        figure.frame17 input[type=text]{
+            background: transparent;
+            position: absolute;
+            top: 140px;
+            left: 75px;
+            border: none;
+            color: #001AFF;
+            outline: none;
+            font-weight: 500px;
+            font-size: 18px;
+            text-align: center;
+        }
+        figure.frame17 input.Alert{
+            background: transparent url(/imagenes/Alert-18.png) no-repeat;
+            position: absolute;
+            top: 246px;
+            left: 35px;
+            border: none;
+            color: #001AFF;
+            outline: none;
+            width: 301px;
+            height: 100px;
+            font-weight: 500px;
+            font-size: 18px;
+        }
+        figure.frame17 div div.peace{
+            width: 90px;
+            height: 90px;
+            background: url(/imagenes/Peace\ Pigeon.png);
+            position: absolute;
+            top: 400px;
+            left: 80px;
+        }
+        figure.frame17 div div.peace2{
+            width: 90px;
+            height: 90px;
+            background: url(/imagenes/Hand\ Peace.png);
+            position: absolute;
+            top: 400px;
+            left: 200px;
+        }
+        figure.frame17 button{
+            height: 50px;
+            width: 300px;
+            background: transparent url(/imagenes/Back.png);
+            position: absolute;
+            border: none;
+            top: 600px;
+            left: 35px;
+        }
+        figure.frame17 button:hover{
+            transform: scale(1.1);
+            transition: 0.5s ease-in-out;
+         }
+
+         /*mujeres*/
+        figure.female{            
+            background-color: #05FF00;
+            border-radius: 50px;
+            height: 690px;
+            width: 370px;
+            margin: 0px auto;
+            position: relative;
+            z-index: 1;
+            top: -2070px;
+         }
+         figure.female input#Male{
+            background: transparent url(/imagenes/UserFemale.png) no-repeat center;
+            top: 36px;
+            border-radius: 25px;
+            left: 133px;
+            position: absolute;          
+            width: 100px;
+            height: 100px;
+            border: none;
+        }
+        figure.female input[type=text]{
+            background: transparent;
+            position: absolute;
+            top: 140px;
+            left: 75px;
+            border: none;
+            color: #001AFF;
+            outline: none;
+            font-weight: 500px;
+            font-size: 18px;
+            text-align: center;
+        }
+        figure.female input.Alert{
+            background: transparent url(/imagenes/Alert-18.png) no-repeat;
+            position: absolute;
+            top: 246px;
+            left: 35px;
+            border: none;
+            color: #001AFF;
+            outline: none;
+            width: 301px;
+            height: 100px;
+            font-weight: 500px;
+            font-size: 18px;
+        }
+        figure.female div div.peace{
+            width: 90px;
+            height: 90px;
+            background: url(/imagenes/Peace\ Pigeon.png);
+            position: absolute;
+            top: 400px;
+            left: 80px;
+        }
+        figure.female div div.peace2{
+            width: 90px;
+            height: 90px;
+            background: url(/imagenes/Hand\ Peace.png);
+            position: absolute;
+            top: 400px;
+            left: 200px;
+        }
+        figure.female button{
+            height: 50px;
+            width: 300px;
+            background: transparent url(/imagenes/Back.png);
+            position: absolute;
+            border: none;
+            top: 600px;
+            left: 35px;
+        }
+        figure.female button:hover{
+            transform: scale(1.1);
+            transition: 0.5s ease-in-out;
+         }
+
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span>Challenge Conditionals</h1>
+        </header>
+        <section>
+            <figure class="conditionals" id="inicio">
+                <h2>Please fill in the true information</h2>
+                <h4>Chosse your gender</h4>
+                <input type="checkbox" class="Gender" id="Male">
+                <input type="checkbox" class="Gender" id="Female">
+                <h4 class="form" id="Fullname">FullName:</h4>
+                <input type="text" id="name" class="form">
+                <h4 class="form" id="Birthday">BirthDay:</h4>
+                <input type="date" id="birthday" class="form">
+                <button id="Verify" name="verify" onclick="result()"></button>
+            </figure>
+
+            <figure class="frame18" id="frame18">
+                <input type="box" class="Gender" id="Male">
+                <input type="text" id="printName">
+                <input type="box" class="Alert" id="Alert">
+                <div>
+                    <div class="gun"></div>
+                    <div class="gun2"></div>
+                </div>
+                <button class="back" onclick="back()"></button>
+            </figure>
+
+            <figure class="frame17" id="frame17">
+                <input type="box" class="Gender" id="Male">
+                <input type="text" id="printName2">
+                <input type="box" class="Alert" id="Alert">
+                <div>
+                    <div class="peace"></div>
+                    <div class="peace2"></div>
+                </div>
+                <button class="back" onclick="back()"></button>
+            </figure>
+
+            <figure class="female" id="female">
+                <input type="box" class="Gender" id="Male">
+                <input type="text" id="printName3">
+                <input type="box" class="Alert" id="Alert">
+                <div>
+                    <div class="peace"></div>
+                    <div class="peace2"></div>
+                </div>
+                <button class="back" onclick="back()"></button>
+            </figure>
+        </section>
+    </main>
+
+    <script>
+        const profile = document.querySelectorAll('input[type=checkbox]');   
+        var genderSelection=" ";
+        var age=0;
+        var name=" ";
+        // Events
+        for (let i = 0; i < profile.length; i++) {
+            profile[i].onclick = function() {
+                if(this.checked) {
+                    profile[0].checked = false;
+                    profile[1].checked = false;                    
+                    this.checked = true;
+                    if(profile[0].checked==true){                        
+                        genderSelection="Male";
+                    }
+                    else if (profile[1].checked==true) {                        
+                        genderSelection="Female";
+                    }
+                }                
+            }
+        }
+
+
+                
+
+        function result(){
+            var birthday=document.getElementById("birthday").value;            
+            name=document.getElementById("name").value;
+
+            var birthday=document.getElementById("birthday").value;            
+            var fdn=new Date(birthday)
+            var now=new Date();
+            age=now.getFullYear()- fdn.getFullYear();
+
+            if(age>17 && genderSelection=="Male"){                
+                document.getElementById("printName").value=name;
+                document.getElementById('frame18').style.zIndex = 4;
+                document.getElementById('inicio').style.zIndex = 1;
+            }
+            else if (age<17 && genderSelection=="Male") {
+                document.getElementById("printName2").value=name;
+                document.getElementById('frame17').style.zIndex = 4;
+                document.getElementById('inicio').style.zIndex = 1;
+            } 
+            else {
+                document.getElementById("printName3").value=name;
+                document.getElementById('female').style.zIndex = 4;
+                document.getElementById('inicio').style.zIndex = 1;
+
+            }
+        }
+
+        function back(){
+            document.getElementById('female').style.zIndex = 1;            
+            document.getElementById('frame17').style.zIndex = 2;            
+            document.getElementById('frame18').style.zIndex = 3;
+            document.getElementById('inicio').style.zIndex = 4;
+        }
+
+    
+            
+        
+    </script>
+    
+</body>
+</html>
