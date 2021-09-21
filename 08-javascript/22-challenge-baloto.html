@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Baloto</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Brawler&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<style>
+    div.el-mocho{
+        width: 920px;
+        height: 654.22px;        
+        background: url(/imagenes/1-estrellas-en-el-universo\ 1.png) no-repeat center;
+        margin: 0px auto;
+        position: relative;
+    }
+    div.el-mocho figure.titulo{
+        position: absolute;
+        width: 468.87px;
+        height: 92.78px;
+        background: url(/imagenes/Nombre-ElMocho.png);
+        top: 35px;
+        left: 165px;
+        font-family: Brawler;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 100px;
+        text-align: end;
+        color: black;
+        letter-spacing: 32px;  
+        word-spacing: 19px;      
+    }
+    div.el-mocho figure.astronauta{
+        width: 315.84px;
+        height: 309.28px;
+        position: absolute;
+        background: url(/imagenes/Astronauta.png) no-repeat center;
+        top: 170px;
+        left: -45px;
+    }
+    div.el-mocho figure.balota{
+        margin: 0px;
+        padding: 0px;
+        position: absolute;
+        background: url(/imagenes/Star-Baloto.png) no-repeat center;
+        width: 123.71px;
+        height: 123.71px;
+        font-family: 'Brawler';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 130px;
+        text-align: center;        
+        color: rgba(0, 0, 0, 0.75);
+    }
+    div.el-mocho figure.balota1{
+        top: 440px;        
+        left: 505px;
+    }
+    div.el-mocho figure.balota2{
+        top: 440px;        
+        left: 383px;
+    }
+    div.el-mocho figure.balota3{
+        top: 440px;        
+        left: 255px;
+    }
+    div.el-mocho figure.balota4{
+        top: 325px;        
+        left: 440px;
+    }
+    div.el-mocho figure.balota5{
+        top: 325px;        
+        left: 315px;
+    }
+    div.el-mocho figure.balota6{
+        background: url(/imagenes/megaEstrella.png) no-repeat center;
+        top: 210px;        
+        left: 380px;
+    }
+    div.el-mocho button.button-play{
+        position: absolute;
+        background: url(/imagenes/buttonPlay.png) no-repeat center;
+        top: 470px;
+        left: 700px;
+        width: 185.57px;
+        height: 185.57px;
+        border-style: none;
+        font-family: Brawler;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 29px;
+        line-height: 35px;
+        color: #000;
+        transition: transform 0.2s ease-out;
+    }
+    div.el-mocho button.button-play:hover{
+        cursor: pointer;
+        transform: rotate(360deg);
+    }
+</style>
+<body>
+     <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Challenge El-Mocho</h1>
+        </header>
+        <section>
+            <div class="el-mocho">
+                <figure class="astronauta"></figure>
+                <figure class="titulo">El Mocho</figure>
+                <figure class="balota balota1 animate__animated" id="balota1"></figure>
+                <figure class="balota balota2 animate__animated" id="balota2"></figure>
+                <figure class="balota balota3 animate__animated" id="balota3"></figure>
+                <figure class="balota balota4 animate__animated" id="balota4"></figure>
+                <figure class="balota balota5 animate__animated" id="balota5"></figure>
+                <figure class="balota balota6 animate__animated" id="balota6"></figure>                 
+                <button class="button-play">Star</button>
+            </div>
+        </section>
+     </main>
+
+     <script>
+         const buttonPlay=document.querySelector('button.button-play');
+         const balotas=document.querySelectorAll('figure.balota');         
+         const balota1=document.getElementById('balota1')
+         const balota2=document.querySelector('figure.balota2')
+         const balota3=document.querySelector('figure.balota3')
+         const balota4=document.querySelector('figure.balota4')
+         const balota5=document.querySelector('figure.balota5')
+         const balota6=document.querySelector('figure.balota6')
+
+        buttonPlay.onclick=function(){            
+           
+            for(let i=0; i<balotas.length;i+=3){
+                balotas[i].classList.remove('animate__fadeInBottomRight')
+            }
+            for(let i=2; i<balotas.length;i+=2){
+                balotas[i].classList.remove('animate__fadeInBottomLeft')
+            }
+            for(let i=1; i<balotas.length;i+=6){
+                balotas[i].classList.remove('animate__fadeInUp')
+            }
+            for(let i=5; i<balotas.length;i+=6){
+                balotas[i].classList.remove('animate__fadeInDown')
+            }
+            setTimeout(function(){
+                for(let i=0; i<balotas.length;i+=3){
+                    balotas[i].classList.add('animate__fadeInBottomRight')
+                }
+                for(let i=2; i<balotas.length;i+=2){
+                    balotas[i].classList.add('animate__fadeInBottomLeft')
+                }
+                for(let i=1; i<balotas.length;i+=6){
+                    balotas[i].classList.add('animate__fadeInUp')
+                }
+                for(let i=5; i<balotas.length;i+=6){
+                    balotas[i].classList.add('animate__fadeInDown')
+                } 
+                var numArray=[];
+                for(let i=0; i<5;i++){                            
+                    numArray[i]=Math.floor(Math.random(1)*43);
+                    for(let a=0; i<numArray.length;i++){
+                        if(numArray[a]==numArray[i]){
+                            numArray[i]=Math.floor(Math.random()*35);
+                        }
+                        else{                        
+                        }
+                        break
+                    }
+                }
+                balota1.innerText=numArray[0];
+                balota2.innerText=numArray[1];
+                balota3.innerText=numArray[2];
+                balota4.innerText=numArray[3];
+                balota5.innerText=numArray[4];
+                balota6.innerText=Math.floor(Math.random(1)*16);               
+            },500);
+         }
+     </script>
+</body>
+</html>
