@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <title>Colombian Survivor</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        p{
+            font-family: 'Redressed', cursive;            
+            margin: 0px;
+            position: absolute;
+            color: rgb(0, 0, 0); 
+        }
+        button:hover{
+            transform: scale(1.1);
+            transition: 0.5s ease-in-out;
+        }
+        figure.home{   
+            z-index: 3;
+            margin: 0px auto;               
+            width: 926px;
+            height: 428px;
+            position: relative;
+            background-image: url(/imagenes/game/desktop_manifestantes.svg);            
+        }
+        figure.home div.logo{
+            width: 740px;
+            height: 300px;
+            position: absolute;
+            background: url(/imagenes/game/bandera\ colombia.svg) no-repeat;
+            left: 92px;
+            top: 30px;
+        }
+        figure.home div.logo h1.name{
+            font-family: 'Redressed', cursive;
+            position: absolute;                        
+            left: 70px;
+            top: -70px;
+            font-weight: 400;
+            font-size: 84px;
+            color: rgb(255, 255, 255);
+        }
+        figure.home div.logo div.captain{
+            background: url(/imagenes/game/capitan\ colombia\ 1.svg);
+            position: absolute;
+            width: 150px;
+            height: 213.3px;
+            left: 295px;
+            top: 80px;
+        }
+        figure.home button.btn-continue{
+            background: url(/imagenes/game/Button-continue.svg);
+            position: absolute;
+            border: 0px;
+            width: 307px;
+            height: 63px;
+            left: 573px;
+            top: 352px;
+            cursor: pointer;            
+        }
+        /*Intro-Instructions*/
+        figure.intro{   
+            z-index: 2;
+            margin: 0px auto;               
+            width: 926px;
+            height: 428px;
+            position: relative;
+            background-image: url(/imagenes/game/desktop_manifestantes.svg);            
+            top: -430px;
+        }
+        figure.intro div.instructions-tittle{
+            width: 740px;
+            height: 300px;
+            position: absolute;
+            background: url(/imagenes/game/bandera\ colombia.svg) no-repeat;
+            left: 32px;
+            top: 32px;
+        }
+        figure.intro div.instructions-tittle h4{
+            font-family: 'Redressed', cursive;
+            font-size: 50px;
+            font-weight: 700;
+            left: 34px;
+            top: 20px;            
+            margin: 0px;
+            position: absolute;
+            color: rgb(255, 255, 255);
+        }
+        figure.intro div.instructions-tittle p{            
+            font-size: 36px;
+            font-weight: 700;
+            left: 34px;
+            top: 95px;                        
+        }
+        figure.intro button.btn-play{
+            position: absolute;
+            background: url(/imagenes/game/Button\ play.svg);
+            border: 0px;
+            width: 307px;
+            height: 63px;
+            left: 573px;
+            top: 352px;
+            cursor: pointer;            
+        }        
+        /*Game*/
+        figure.game{
+            z-index:1;            
+            margin: 0px auto;               
+            width: 926px;
+            height: 428px;
+            position: relative;            
+            top: -857px;
+        }
+        figure.game div.top{
+            z-index: 4;
+            position: absolute;
+            background: url(/imagenes/game/Top.svg) no-repeat;
+            width: 926px;
+            height: 77px;
+            border-radius: 50px 50px 0px 0px;
+        }
+        figure.game div.top div.score p.score-text{
+            font-size: 46px;
+            font-weight: 700;
+            left: 24px;
+            top: 10px;            
+        }
+        figure.game div.top div.score p.scoreResult{            
+            font-size: 35px;
+            font-weight: 700;
+            left: 144px;
+            top: 20px;                                        
+        }
+        figure.game div.top div.time p.time-text{
+            font-size: 46px;
+            font-weight: 700;
+            left: 330px;
+            top: 10px;
+        }
+        figure.game div.top div.time p.timeClock{
+            font-size: 35px;
+            font-weight: 700;
+            left: 445px;
+            top: 20px;
+        }
+        figure.game div.top div.lives p.lives-text{
+            font-size: 46px;
+            font-weight: 700;
+            left: 600px;
+            top: 10px;
+        }
+        figure.game div.top div.lives figure{
+            background: url(/imagenes/game/Heart.svg);
+            position: absolute;
+            width: 60px;
+            height: 60px;            
+        }
+        figure.game div.top div.lives figure.live1{
+            left: 805px;
+        }
+        figure.game div.top div.lives figure.live2{
+            left: 735px;
+        }
+        figure.game div.top div.lives figure.live3{
+            left: 660px;
+        }
+        figure.game div.desktop-game{
+            width: 926px;
+            height: 428px;
+            background: url(/imagenes/game/Carretera.svg) repeat-y 0px;            
+            border-radius: 50px;
+            animation: animParallax 70s linear infinite;
+        }
+        figure.game div.desktop-game figure.car{
+            position:absolute;
+            height: 150px;
+            width: 75px;
+            background: url(/imagenes/game/car.png);
+            margin: 0px;
+            top: 270px;
+            left: 425px;
+            transition: all 0.2s linear;
+        }
+        figure.game div.desktop-game figure.elements{
+            position: absolute;
+            margin: 0px;            
+            height: 75px;
+            width: 75px;
+            animation: 6000ms elementsAnim linear infinite;
+        }
+        @keyframes elementsAnim {            
+            0% { top: 0px; }            
+            100%{top: 400px;}
+        }
+        figure.game div.desktop-game figure.police{            
+            background: url(/imagenes/game/patrulla\ 1.png)no-repeat center;  
+            background-size: contain ;
+            background-size: 60%;
+        }
+        figure.game div.desktop-game figure.duque{            
+            background: url(/imagenes/game/tocino.png)no-repeat;            
+            background-size: contain;
+        }
+        figure.game div.desktop-game figure.pear{            
+            background: url(/imagenes/game/pear.png)no-repeat;            
+            background-size: contain;
+        }
+        figure.game div.desktop-game figure.apple{            
+            background: url(/imagenes/game/apple.png)no-repeat;            
+            background-size: contain;
+        }
+        @keyframes animParallax {
+            0%   { background-position: 0px 0px; }
+            100% { background-position: 0px 11500px; }
+        }
+        /*game over*/
+        figure.finalGame{            
+            z-index: 0;
+            margin: 0px auto;               
+            width: 926px;
+            height: 428px;
+            position: relative;            
+            background: url(/imagenes/game/desktop_manifestantes.svg);
+            top: -1285px;
+        }
+        figure.finalGame div.finalScore{
+            width: 740px;
+            height: 300px;
+            position: absolute;
+            background: url(/imagenes/game/bandera\ colombia.svg) no-repeat;
+            left: 100px;
+            top: 25px;
+        }
+        figure.finalGame div.finalScore h4{
+            font-family: 'Redressed', cursive;
+            font-size: 80px;
+            font-weight: 700;
+            left: 90px;
+            top: 55px;            
+            margin: 0px;
+            line-height: 88px;
+            position: absolute;
+            color: rgb(255, 255, 255);
+        }
+        figure.finalGame div.finalScore p{            
+            font-size: 55px;
+            font-weight: 700;
+            left: 100px;
+            top: 160px;  
+            color: rgb(255, 255, 255);            
+        }
+        figure.finalGame div.finalScore div.captain{
+            background: url(/imagenes/game/capitan\ colombia\ 1.svg);
+            position: absolute;
+            width: 150px;
+            height: 213.3px;
+            left: 495px;
+            top: 45px;
+        }
+        figure.finalGame button.btn-back{
+            position: absolute;
+            background: url(/imagenes/game/Button-restar.png);            
+            border: 0px;
+            width: 307px;
+            height: 63px;
+            left: 573px;
+            top: 352px;
+            cursor: pointer;            
+        }        
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span>Challenge Conditionals</h1>
+        </header>
+        <section>
+            <figure class="home animate__animated animate__slideInDown" id="home">
+                <div class="logo" id="logo">
+                    <h1 class="name" id="name">Colombian Survivor</h1>
+                    <div class="captain" id="captain"></div>
+                </div>
+                <button class="btn-continue" id="btn-continue"></button>
+            </figure>
+        
+            <figure id="intro" class="intro animate__animated animate__slideInDown">
+                <div class="instructions-tittle">
+                    <h4 class="tittle">INSTRUCTIONS</h4>
+                    <p class="instructions">The objective of Colombian survivor is to avoid that the police and evil doctor bacon catch you, and you must take the fruits to gain points.</p>
+                </div>
+                <button class="btn-play" id="btn-play"></button>
+            </figure>
+        
+            <figure id="game" class="game animate__animated animate__slideInDown">
+                <div class="top">
+                    <div class="score">
+                        <p class="score-text">Score</p>
+                        <p class="scoreResult" id="scoreResult">00</p>
+                    </div>
+                    <div class="time">
+                        <p class="time-text">Time</p>
+                        <p class="timeClock" id="timeClock"></p>
+                    </div>
+                    <div class="lives">
+                        <p class="lives-text">Lives</p>
+                        <figure class="live1" id="live1"></figure>
+                        <figure class="live2" id="live2"></figure>
+                        <figure class="live3" id="live3"></figure>
+                    </div>
+                </div>
+                <div class="desktop-game">
+                    <figure class="car" id="car"></figure>                    
+                    <figure class="elements" id="elements"></figure>
+                </div>
+            </figure>
+
+            <figure id="finalGame" class="finalGame animate__animated animate__slideInDown">
+                <div class="finalScore">
+                    <h4 class="tittle">Game Over</h4>
+                    <p class="finalScoreTxt">SCORE: <span class="finalScoreValue" id="finalScoreValue">0000</span></p>
+                    <div class="captain"></div>
+                </div>
+                <button class="btn-back" id="btn-back"></button>
+            </figure>
+        </section>
+    </main>
+    <!--script-->
+    <script>
+        const btnContinue=document.getElementById('btn-continue');
+        const btnPlay=document.getElementById('btn-play');
+        const btnBack=document.getElementById('btn-back');
+        const pageHome=document.getElementById('home');
+        const pageIntro=document.getElementById('intro');
+        const pageGame=document.getElementById('game');
+        const pageFinal=document.getElementById('finalGame')
+        const car=document.getElementById('car');
+        const element=document.querySelector('figure.elements')        
+        
+        var score=document.getElementById('scoreResult');
+        var live1=document.getElementById('live1');
+        var live2=document.getElementById('live2');
+        var live3=document.getElementById('live3');
+        var totalLives=3;
+        var time=document.getElementById('timeClock');        
+        var auto=document.getElementById('car');
+        var elements = document.getElementById('elements');        
+        var post     = 0;
+        var posl     = 0;
+        var finalScore=document.getElementById('finalScoreValue');
+        var elementPlus=document.querySelectorAll('figure.plus');
+        var elementMinus=document.querySelectorAll('figure.minus');    
+
+        const elementPosition=[226, 426, 626];
+        const elementImage=['pear','apple','police','duque'];
+
+        const colombianSurvivior={
+            CSscore:0,
+            CSlives:3,
+            CStime:60,
+            carpos:426,
+            downTime:6100,   
+            rdn:0,
+
+            preview:function(){
+                this.changePageIntro();
+            },
+            OnPlay:function(){
+                this.changePage2();
+                this.timeDown();
+                this.elementsRamdon();  
+                this.collidesWith(auto,elements);
+                this.livesCount();
+                this.gameOver();
+            },
+            restarGame:function(){
+                this.restar();
+            },
+            changePageIntro:function(){                                      
+                pageIntro.classList.add('animate__slideInLeft');           
+                pageGame.classList.add('animate__slideInLeft');
+                pageFinal.classList.add('animate__slideInLeft');
+                pageHome.style.zIndex=0;
+                pageIntro.style.zIndex=3;
+                pageGame.style.zIndex=1;
+                pageFinal.style.zIndex=2;                
+            },
+            changePage2:function(){                
+                pageGame.classList.remove('animate__slideInLeft');
+                pageGame.classList.add('animate__slideInRight');
+                pageFinal.classList.remove('animate__slideInLeft');
+                pageFinal.classList.add('animate__slideInRight');
+                pageHome.style.zIndex=0;
+                pageIntro.style.zIndex=1;
+                pageGame.style.zIndex=3;
+                pageFinal.style.zIndex=2;
+            },
+            timeDown:function(){               
+                let setInter=setInterval(function(){
+                    if (colombianSurvivior.CStime < 1) {                        
+                        time.innerText = '0';
+                        clearInterval(setInter);
+                    } else {     
+                        time.innerText=parseInt(colombianSurvivior.CStime--);
+                    }
+                    if (colombianSurvivior.CStime %1 == 0) {
+                        if (colombianSurvivior.CStime != 60 && colombianSurvivior.CStime !=0) {
+                            colombianSurvivior.CSscore += 10;
+                            colombianSurvivior.downTime-=100;                            
+                            score.innerText = colombianSurvivior.CSscore;
+                        }
+                    }
+                },1000);
+            },
+            elementsRamdon: function(){
+                let setQuesInter=setInterval(function(){                    
+                    if(colombianSurvivior.CStime%1==0){
+                    if(colombianSurvivior.CStime<61 && colombianSurvivior.CStime>49){                        
+                        let setRdnInter=setInterval(function(){
+                            colombianSurvivior.rdn=Math.floor(Math.random()*elementImage.length);
+                            let rdn2=Math.floor(Math.random()*elementPosition.length);
+                            element.classList.remove('police','duque','pear','apple');
+                            element.classList.add(elementImage[colombianSurvivior.rdn]);
+                            element.style.left=elementPosition[rdn2]+'px';
+                            element.style.animation=colombianSurvivior.downTime+'ms elementsAnim linear infinite';
+                        },5000);
+                    }
+                    else if(colombianSurvivior.CStime<50 && colombianSurvivior.CStime>39){                        
+                        let setRdnInter=setInterval(function(){
+                            colombianSurvivior.rdn=Math.floor(Math.random()*elementImage.length);
+                            let rdn2=Math.floor(Math.random()*elementPosition.length);
+                            element.classList.remove('police','duque','pear','apple');
+                            element.classList.add(elementImage[colombianSurvivior.rdn]);
+                            element.style.left=elementPosition[rdn2]+'px';        
+                            element.style.animation=colombianSurvivior.downTime+'ms elementsAnim linear infinite';
+                        },4000);
+                    }
+                    else if(colombianSurvivior.CStime<40 && colombianSurvivior.CStime>29){                    
+                        let setRdnInter=setInterval(function(){
+                            let rdn=Math.floor(Math.random()*elementImage.length);
+                            let rdn2=Math.floor(Math.random()*elementPosition.length);
+                            element.classList.remove('police','duque','pear','apple');
+                            element.classList.add(elementImage[rdn]);
+                            element.style.left=elementPosition[rdn2]+'px';     
+                            element.style.animation=colombianSurvivior.downTime+'ms elementsAnim linear infinite';
+                        },3000);
+                    }else if(colombianSurvivior.CStime<30 && colombianSurvivior.CStime>19){                        
+                        let setRdnInter=setInterval(function(){
+                            let rdn=Math.floor(Math.random()*elementImage.length);
+                            let rdn2=Math.floor(Math.random()*elementPosition.length);
+                            element.classList.remove('police','duque','pear','apple');
+                            element.classList.add(elementImage[rdn]);
+                            element.style.left=elementPosition[rdn2]+'px';                  
+                            element.style.animation=colombianSurvivior.downTime+'ms elementsAnim linear infinite';
+                        },2000);
+                    }else if(colombianSurvivior.CStime<20 && colombianSurvivior.CStime>9){                        
+                        let setRdnInter=setInterval(function(){
+                            let rdn=Math.floor(Math.random()*elementImage.length);
+                            let rdn2=Math.floor(Math.random()*elementPosition.length);
+                            element.classList.remove('police','duque','pear','apple');
+                            element.classList.add(elementImage[rdn]);
+                            element.style.left=elementPosition[rdn2]+'px';       
+                            element.style.animation=colombianSurvivior.downTime+'ms elementsAnim linear infinite';
+                        },1000);
+                    }
+                    else if(colombianSurvivior.CStime<10 && colombianSurvivior.CStime>=0){                        
+                        let setRdnInter=setInterval(function(){
+                            let rdn=Math.floor(Math.random()*elementImage.length);
+                            let rdn2=Math.floor(Math.random()*elementPosition.length);
+                            element.classList.remove('police','duque','pear','apple');
+                            element.classList.add(elementImage[rdn]);
+                            element.style.left=elementPosition[rdn2]+'px'; 
+                            element.style.animation=colombianSurvivior.downTime+'ms elementsAnim linear infinite';
+                        },500);
+                    }                   
+                }
+                },5000)                
+            },
+            collidesWith:function(){                                        
+                let setETInter=setInterval(function(){
+                    element1top=auto.offsetTop;
+                    element1left   = auto.offsetLeft;
+                    element1right  = Number(auto.offsetLeft) + Number(auto.offsetWidth);
+                    element1bottom = Number(auto.offsetTop)  + Number(auto.offsetHeight);
+
+                    element2top    = elements.offsetTop;                    
+                    element2left   = elements.offsetLeft;
+                    element2right  = Number(elements.offsetLeft) + Number(elements.offsetWidth);
+                    element2bottom = Number(elements.offsetTop)  + Number(elements.offsetHeight);
+
+                    if (element1right  > element2left   && element1left   < element2right  && element1top    < element2bottom && element1bottom > element2top ) {                                                
+                        console.log('vidas: '+colombianSurvivior.CSlives)                        
+                        if((elementImage[colombianSurvivior.rdn])=='pear'|| (elementImage[colombianSurvivior.rdn])=='apple'){
+                            colombianSurvivior.CSscore+=100;
+                            console.log('choco con'+(elementImage[colombianSurvivior.rdn]))
+                            if(colombianSurvivior.CSlives<3){
+                                colombianSurvivior.CSlives++;
+                            }
+                        }                        
+                        else if((elementImage[colombianSurvivior.rdn])=='police'|| (elementImage[colombianSurvivior.rdn])=='duque'){
+                            colombianSurvivior.CSlives--;
+                            console.log('choco con'+(elementImage[colombianSurvivior.rdn]))
+                            car.style.background=('url(/imagenes/game/explosion.png)');
+                            car.style.backgroundSize=('contain');
+                        }
+                    } else {                        
+                        car.style.background=('url(/imagenes/game/car.png)');                        
+                    }
+                },500)
+            },
+            livesCount:function(){
+                let setLiveIn=setInterval(function(){                        
+                        if(colombianSurvivior.CSlives==2){
+                            live1.style.display=('none')
+                        }
+                        else if(colombianSurvivior.CSlives==1){
+                            live2.style.display=('none')
+                        }
+                        else if(colombianSurvivior.CSlives<=0){
+                            live3.style.display=('none')                                                
+                        }
+                },2000)
+            },
+            gameOver:function(){
+                let setFinal=setInterval(function(){
+                    while(colombianSurvivior.CStime==0 || colombianSurvivior.CSlives<0){
+                        colombianSurvivior.CStime=-1;
+                        pageGame.classList.add('animate__slideInLeft');           
+                        pageFinal.classList.add('animate__slideInLeft');
+                        pageHome.style.zIndex=0;
+                        pageIntro.style.zIndex=2;
+                        pageGame.style.zIndex=1; 
+                        pageFinal.style.zIndex=3;
+                        finalScore.innerText=colombianSurvivior.CSscore;
+                        break;
+                    }                
+                },1000)           
+            },
+            restar:function(){
+                location.reload();
+            }
+        };
+        //eventos
+        btnContinue.onclick=function(){
+            colombianSurvivior.preview();
+        }
+        btnPlay.onclick=function(){
+            colombianSurvivior.OnPlay();
+        }
+        btnBack.onclick=function(){
+            colombianSurvivior.restarGame();
+        }
+        document.onkeydown=function(when){
+            if(when.keyCode==37){
+                if(colombianSurvivior.carpos > 226){
+                    colombianSurvivior.carpos-=200;
+                    car.style.left=colombianSurvivior.carpos+'px';
+
+                }                
+            }
+            if(when.keyCode==39){
+                if(colombianSurvivior.carpos<626){
+                    colombianSurvivior.carpos+=200;
+                    car.style.left=colombianSurvivior.carpos+'px';
+                }                
+            }
+        }
+        
+    </script>
+</body>
+</html>
