@@ -21,7 +21,7 @@
         figure {
             margin: 0px auto;
             width: 780px;
-            margin-top: 200px;
+            margin-top: 200px;            
         }                    
         div.moves{
             background: transparent url(../imagenes/challenge-jquery/cards.png) no-repeat 0px center;            
@@ -122,7 +122,7 @@
             left: 50%;
             top: 50%;
             width: 400px;
-            transform: translate(-50%,-50px);
+            transform: translate(-50%,-200px);
         }
         div.modal div.data h4{
             text-align: center;
@@ -151,6 +151,45 @@
             font-size: 24px;
             font-family: Roboto;
         }
+        div.scores{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            z-index: 4;
+            top: 0px;
+            left: 0px;
+            display: none;
+        }
+        table.tableScores{
+            position: absolute;            
+            border: 3px solid rgb(69, 243, 0);
+            width: 550px;
+            height: 500px;
+            transform: translate(-50%,-200px);
+            top: 50%;
+            left: 50%;
+        }
+        table.tableScores thead tr th{
+            position: relative;                        
+            width: 650px;
+            height: 50px;
+            background-color: rgb(165, 55, 55);     
+            text-align: center;
+            color: #838383;            
+            font-size: 24px;
+            font-family: Roboto;
+        }
+        table.tableScores tbody{
+            position:relative;
+            width: 100px;
+            height: 50px;
+            background-color: rgb(10, 106, 64);     
+            text-align: center;
+            color: #838383;            
+            font-size: 24px;
+            font-family: Roboto;            
+        }
     </style>
 </head>
 <body>
@@ -165,10 +204,26 @@
                     <h4>SCORE</h4>
                     <div class="fmoves">- 1 moves</div>
                     <div class="ftime">- 1 seconds</div>
-                    <input type="text" id="UserName" placeholder="Enter Your Name">
+                    <input type="text" class="UserName" placeholder="Enter Your Name">
                     <br>
                     <button id="btn-save">SAVE</button>
                 </div>
+            </div>
+            <div class="scores">
+                <h2>TOP SCORES</h2>
+                <table class="tableScores">
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Name</th>
+                            <th>Moves</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
             </div>            
             <figure>                                
                 <div class="moves"><h4>0 moves</h4></div>
@@ -236,7 +291,8 @@
             $cards  = document.querySelectorAll('div.card');
             $ccards = ['card01', 'card01', 'card02', 'card02',
                       'card03', 'card03', 'card04', 'card04',
-                      'card05', 'card05', 'card06', 'card06'];            
+                      'card05', 'card05', 'card06', 'card06'];
+           
 
             $('.card').click(function() {                
                 //$(this).toggleClass('is-flipped');
@@ -253,21 +309,24 @@
                 }
             });
 
+            
+
             $('#btn-save').click(function(){
-                let user={
-                    id:localStorage.getItem(user.id)+1,
-                    name:$('#UserName'),
+                let user={                  
+                    name:$(".UserName").val(),                                      
                     moves:$contMoves,
                     time:$seconds,
+                };                
+                $('.scores').css('display','block');
+                $('.modal').css('display','none');                 
+                for(let step=1;step<5;step++){
+                    localStorage.setItem("player"+step,JSON.stringify( user ));
+                    $userFinal=localStorage.getItem("player"+step);
+                    $valuesUser=Object.values(JSON.parse($userFinal));
+                    $('.scores table.tableScores tbody').html('<tr><th>'+step+'</th><th>'+$valuesUser[0]+'</th><th>'+$valuesUser[1]+'</th><th>'+$valuesUser[2]+'</th></tr>');
                 };
-                let userStr=JSON.stringify(user);
-                localStorage.setItem("user",userStr);
-                $('.modal').addClass('hide');
-                setTimeout(function(){
-                    window.location.replace('12-challenge-memory-game.html');
-                },1000);
             });
-
+            
             const comprobarPareja=()=>{
                 $contMoves++;
                 $('.moves h4').text($contMoves + ' moves');
@@ -308,10 +367,10 @@
                 $bg = $ccards[$rn];
                 $ccards.splice($rn,1);
                 return $bg;
-            }
+            }                               
 
             randomCard();
-            getTime();  
+            getTime();              
         });
     </script>
     
