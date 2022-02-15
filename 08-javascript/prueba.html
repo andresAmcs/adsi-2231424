@@ -4,93 +4,374 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge Ball-oto</title>
+    <title>Memory Game</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <style>
-        html {
-	        font-size: 62.5%;
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>        
+        div.logo{
+           background: url(../imagenes/challenge-jquery/logoMemoryGame.png);
+           width: 465px;
+           height: 200px;
+           position: absolute;
+           left: 35%;
+           border-radius: 50%;
         }
-        body {
-	        font: 1.4rem Tahoma;
-        }
-        div {
-            height: 100px;
-            position: relative;
+        figure {
+            margin: 0px auto;
+            width: 780px;
+            margin-top: 200px;            
+        }                    
+        div.moves{
+            background: transparent url(../imagenes/challenge-jquery/cards.png) no-repeat 0px center;            
             width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 25%;
+            top: 150px;
+        }        
+        div.moves h4{
+            margin-left: -150px;  
+            color: #838383;
+            display: inline-block;
+            font-size: 24px;
+            font-family: Roboto;          
+        }       
+        div.time{
+            background: transparent url(../imagenes/challenge-jquery/clock.png) no-repeat 0px center;
+            width: 180px;
+            height: 100px;
+            position: absolute;
+            left: 75%;
+            top: 150px;
         }
-        div#element1 {
-            background-color: #0a4;
-            left: 0px;
+        div.time h4{
+            margin-left: 80px;
+            color: #838383;            
+            font-size: 24px;            
+            font-family: Roboto;            
+        }
+        div.ftime,
+        div.fmoves{
+            color: #838383;            
+            font-size: 34px;
+            font-family: Roboto;
+        }
+        div.card {
+            display: inline-block;
+            height: 194px;
+            margin: 13px;
+            transition: transform 1s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            position: relative;
+            width: 164px;
+            z-index: 1;
+        }
+        div.card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        div.card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        div.card-face-front {
+            background: transparent url(../imagenes/challenge-jquery/orejona.png) no-repeat center;
+        }
+        div.card-face-back {
+            transform: rotateY(180deg);
+        }
+        div.card01 div.card-face-back {
+            background: transparent url(../imagenes/challenge-jquery/lewandoski.png) no-repeat center;
+        }
+        div.card02 div.card-face-back {
+            background: transparent url(../imagenes/challenge-jquery/messi.png) no-repeat center;
+        }
+        div.card03 div.card-face-back {
+            background: transparent url(../imagenes/challenge-jquery/neymar.png) no-repeat center;
+        }
+        div.card04 div.card-face-back {
+            background: transparent url(../imagenes/challenge-jquery/ospina.png) no-repeat center;
+        }
+        div.card05 div.card-face-back {
+            background: transparent url(../imagenes/challenge-jquery/ramos.png) no-repeat center;
+        }
+        div.card06 div.card-face-back {
+            background: transparent url(../imagenes/challenge-jquery/elbicho.png) no-repeat center;
+        }
+        div.modal.hide{
+          display: none;
+        }
+        div.modal{
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            z-index: 2;
             top: 0px;
+            left: 0px;
         }
-        div#element2 {
-            background-color: #d20;
-            left: 120px;
-            top: -100px;
+        div.modal div.data{
+            background-color: white;
+            padding: 20px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 400px;
+            transform: translate(-50%,-200px);
+        }
+        div.modal div.data h4{
+            text-align: center;
+            font-family:roboto;
+            font-size: 2rem;
+            color: blue;            
+        }
+        div.modal div.data input{
+            padding: 20px;
+            font-family: roboto;
+            font-size: 24px;
+            text-align: center;
+            width: 88%;
+            border-radius: 50px;
+            border: 2px solid rgb(0, 0, 0);
+            margin-top: 20px;
+        }
+        div.modal div.data button{
+            background-color: rgb(22, 40, 119);
+            border: none;
+            padding: 20px;
+            border-radius: 50px;
+            width: 100%;
+            margin-top: 20px;
+            color: #838383;            
+            font-size: 24px;
+            font-family: Roboto;
+        }
+        div.scores{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            z-index: 4;
+            top: 0px;
+            left: 0px;
+            display: none;
+        }
+        table.tableScores{
+            position: absolute;            
+            border: 3px solid rgb(69, 243, 0);
+            width: 550px;
+            height: 500px;
+            transform: translate(-50%,-200px);
+            top: 50%;
+            left: 50%;
+        }
+        table.tableScores thead tr th{
+            position: relative;                        
+            width: 650px;
+            height: 50px;
+            background-color: rgb(165, 55, 55);     
+            text-align: center;
+            color: #838383;            
+            font-size: 24px;
+            font-family: Roboto;
+        }
+        table.tableScores tbody{
+            position:relative;
+            width: 100px;
+            height: 50px;
+            background-color: rgb(10, 106, 64);     
+            text-align: center;
+            color: #838383;            
+            font-size: 24px;
+            font-family: Roboto;            
         }
     </style>
 </head>
 <body>
-    <div id="element1"></div>
-	<div id="element2"></div>
-	<p>Nota: Mover con las teclas de direcciones...</p>
-	<hr>
-	<h3 id="result"></h3>
-<script>
-    var result   = document.getElementById('result');
-    var element1 = document.getElementById('element1');
-    var element2 = document.getElementById('element2');
-    var bdy      = document.getElementById('bdy');
-    var post     = 0;
-    var posl     = 0;
+    <main>
+        <header>
+            <h1> <span><a href="index.html">&larr;</a></span> Memory Game</h1>
+        </header>
+        <div class="logo"></div>
+        <section>
+            <div class="modal hide">
+                <div class="data">
+                    <h4>SCORE</h4>
+                    <div class="fmoves">- 1 moves</div>
+                    <div class="ftime">- 1 seconds</div>
+                    <input type="text" class="UserName" placeholder="Enter Your Name">
+                    <br>
+                    <button id="btn-save">SAVE</button>
+                </div>
+            </div>
+            <div class="scores">
+                <h2>TOP SCORES</h2>
+                <table class="tableScores">
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Name</th>
+                            <th>Moves</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
+                    </tbody>
+                </table>
+            </div>            
+            <figure>                                
+                <div class="moves"><h4>0 moves</h4></div>
+                <div class="time"><h4>0 seconds</h4></div>
+                <br>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>
+                <div class="card">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"></div>
+                </div>   
+            </figure>
+        </section>
+    </main>
 
-    function collidesWith (element1, element2) {
-    
-        element1top    = element1.offsetTop;
-        element1left   = element1.offsetLeft;
-        element1right  = Number(element1.offsetLeft) + Number(element1.offsetWidth);
-        element1bottom = Number(element1.offsetTop)  + Number(element1.offsetHeight);
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $contClicks=0;
+            $contMacth=0;
+            $contMoves=0;
+            $seconds=0;            
+            $cards  = document.querySelectorAll('div.card');
+            $ccards = ['card01', 'card01', 'card02', 'card02',
+                      'card03', 'card03', 'card04', 'card04',
+                      'card05', 'card05', 'card06', 'card06'];
+           
 
-        element2top    = element2.offsetTop;
-        element2left   = element2.offsetLeft;
-        element2right  = Number(element2.offsetLeft) + Number(element2.offsetWidth);
-        element2bottom = Number(element2.offsetTop)  + Number(element2.offsetHeight);
+            $('.card').click(function() {                
+                //$(this).toggleClass('is-flipped');
+                if(!$(this).hasClass('active')){
+                    $(this).addClass('is-flipped activo');
+                    $contClicks++;
+                    if($contClicks==1){
+                        $div1=$(this);
+                    }else{
+                        $div2=$(this);
+                        $contClicks=0;
+                        comprobarPareja();                    
+                    }
+                }
+            });
 
-        if (element1right  > element2left   && element1left   < element2right  && element1top    < element2bottom && element1bottom > element2top ) {
-            console.log("Colisión: SI!");
-        } else {
-            console.log("Colisión: NO!")    ;
-        }
-    }
+            
 
-    document.onkeydown = function(e) {
-        var kcod = e.keyCode;
-        if (kcod == 37) {
-            posl -= 40;
-            element1.style.left = posl+'px';
-        }
-        if (kcod == 38) {
-            post -= 40;
-            element1.style.top = post+'px';
-        }
-        if (kcod == 39) {
-            posl += 40;
-            element1.style.left = posl+'px';
-        }
-        if (kcod == 40) {
-            post += 40;
-            element1.style.top = post+'px';
-        }
-        if (kcod > 36 && kcod < 41) {
-            collidesWith(element1, element2);
-        }
-    }
-</script>
+            $('#btn-save').click(function(){
+                let user={                  
+                    name:$(".UserName").val(),                                      
+                    moves:$contMoves,
+                    time:$seconds,
+                };                
+                $('.scores').css('display','block');
+                $('.modal').css('display','none');                
+                $userFinal=localStorage.getItem("player");
+                $valuesUser=Object.values(JSON.parse($userFinal));
+                $('.scores table.tableScores tbody').html('<tr><th>'+$valuesUser[0]+'</th></tr>');
+                alert($valuesUser);     
+                localStorage.setItem("player",JSON.stringify( user ));
+            });
+            
+            const comprobarPareja=()=>{
+                $contMoves++;
+                $('.moves h4').text($contMoves + ' moves');
+                //alert('pareja');
+                if($div1.attr('class').substring(5,12) == 
+                $div2.attr('class').substring(5,12)){
+                    //alert('match');
+                    $contMacth++;                    
+                    if($contMacth==6){
+                        clearInterval($setInt);
+                        showResult();                        
+                    }
+                }else{
+                    setTimeout(function(){
+                        $div1.removeClass('is-flipped actived');
+                        $div2.removeClass('is-flipped actived');
+                    },1000);
+                }                
+            }
+            const getTime = () => {
+                $setInt = setInterval(function(){
+                    $seconds++;
+                    $('.time h4').text($seconds + 'seconds');
+                },1000);
+            }
+            const randomCard = () => {
+                for (let i = 0; i < $cards.length; i++) {
+                    $($cards[i]).addClass(randomBg());
+                }
+            }
+            const showResult=()=>{
+                $('.fmoves').text('MOVES: '+$contMoves + ' moves');
+                $('.ftime').text('TIME: '+ $seconds + ' seconds');
+                $('.modal').removeClass('hide');                
+            }
+            const randomBg = () => {
+                $rn = Math.floor(Math.random() * $ccards.length );
+                $bg = $ccards[$rn];
+                $ccards.splice($rn,1);
+                return $bg;
+            }                               
+
+            randomCard();
+            getTime();              
+        });
+    </script>
     
 </body>
 </html>
