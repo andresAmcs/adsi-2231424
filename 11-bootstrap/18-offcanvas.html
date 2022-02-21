@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cards</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>   
+    <main class="container">
+        <div class="row">
+            <div class="col-md-12 mt-5 mb-5 ">
+            <h1 class="text-center">Offcanvas</h1>
+            <hr>
+            <nav aria-label="breadcrumb">                
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="index.html">
+                            <i class="fa fa-home"></i>
+                            Main Menu
+                        </a>
+                    </li>
+                    
+                    <li class="breadcrumb-item active" aria-current="page">                        
+                        <i class="fa fa-code"></i>
+                        Offcanvas
+                    </li>
+                </ol>
+            </nav>
+
+            <div class="row">
+                <div class="col-md-8 offset-md 2">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enable backdrop (default)</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                      <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Colored with scrolling</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <p>Try scrolling the rest of the page to see this option in action.</p>
+                      </div>
+                    </div>
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+                      <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Offcanvas with backdrop</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, officia? Facilis sint voluptate perspiciatis expedita eveniet, veniam inventore odit, velit hic numquam eos tempore dolores neque. Sapiente recusandae aperiam voluptatum voluptates ipsam earum atque voluptatem, dolore vitae fugiat officiis dolorum quidem dolorem. Debitis, saepe amet sint eos ipsum asperiores blanditiis voluptatum eaque magni magnam ipsa cum ex officia aspernatur fuga laboriosam explicabo expedita? Reiciendis facere ullam debitis eligendi, aperiam quibusdam ipsam ab esse accusantium hic cumque corrupti iste ut expedita itaque fuga dolorem consequuntur eum obcaecati quas, assumenda ex. Ut voluptatem officia similique, sit tempora iste nemo accusantium vel quod!</p>
+                      </div>
+                    </div>
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                      <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                      </div>
+                      <div class="offcanvas-body">
+                        <p>Try scrolling the rest of the page to see this option in action.</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>                        
+    </main>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
