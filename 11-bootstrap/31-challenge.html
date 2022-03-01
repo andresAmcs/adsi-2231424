@@ -45,43 +45,37 @@
                 <!-- Navbar -->
                 <div class="row">
                     <div class="col-md-8 offset-md-2 ">
-                        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
-                            <div class="col-md-8 offset-md-2" >                  
-                              <div class="collapse navbar-collapse my-0" id="navbarSupportedContent">                        
-                                <a class="navbar-brand mx-3 my-0 text-muted" id="navbar-title" href="#" >
-                                    <h5>Andres<strong>GK35</strong></h5>
-                                </a>
-                                <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                  <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <ul class="navbar-nav ms-auto gap-2 my-0 py-0">
-                                  <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#About">About</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#Services">Services</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#Projects">Portafolio</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#">Pricing</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="#">Experience</a>
-                                  </li>
-                                </ul>                      
-                              </div>
-                            </div>                        
-                        </nav>
+                      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark pb-3">
+                        <div class="container">
+                            <a class="navbar-brand" href="#">                                
+                              <h5>Andres<strong>GK35</strong></h5>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ms-auto gap-4 mt-2 mb-2 mb-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link page-scroll" href="#Home">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link page-scroll" href="#About">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link page-scroll" href="#Services">Services</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link page-scroll" href="#Projects">Portfolio</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                     </div>
                 </div>        
                 <div class="bg-image" 
                         style="background-image: url('imgs/Desktop.png') ; background-repeat: no-repeat; 
-                        height: auto; width:100%">    
+                        height: auto; max-width:100%" id="Home">    
                     <div class="container-fluid pt-4"> 
                         <div class="col-md-10 offset-md-1 ">
                             <div class="row align-items-center pt-4 mt-5 " >
@@ -103,7 +97,7 @@
                 </div>         
             </div>        
         <!-- Aboutk -->
-        <div class="row mb-5 shadow">                   
+        <div class="row mb-5 shadow" id="About">                   
             <div class="container-fluid "> 
                 <div class="col-md-10 offset-md-1 ">
                     <div class="row align-items-center  " >
@@ -111,7 +105,7 @@
                             <img src="imgs/Group 2.png" alt="">
                         </div>
                         <div class="col-md-5 col-sm-8 offset-1 mt-4 pt-5 mt-5">
-                            <strong class="display-6" id="About">About</strong>
+                            <strong class="display-6" >About</strong>
                         <br>
                         <h1>Why You Hire ME?</h1>
                         <strong class="line">____ _ _</strong>
@@ -170,11 +164,11 @@
             </div>                        
         </div> 
         <!-- Service -->
-        <div class="row mb-5 shadow">                                    
+        <div class="row mb-5 shadow" id="Services">                                    
             <div class="container-fluid pt-4"> 
                 <div class="col-md-10 offset-md-1 ">
                     <div class="row text-center my-5">
-                        <p><strong class="Service" id="Services">Services</strong></p>
+                        <p><strong class="Service" >Services</strong></p>
                         <h3>Service I Provide</h3>
                         <strong class="line">____ _ _</strong>
                     </div>
@@ -241,11 +235,11 @@
             </div>                   
         </div> 
         <!--Portafolio-->
-        <div class="row mt-1 shadow">
+        <div class="row mt-1 shadow" id="Projects">
             <div class="container-fluid bg-light bg-gradient-light">
                 <div class="row">
                     <div class="col-8 offset-2 mt-3">
-                        <strong class="display-6" id="Projects">Portafolio</strong>
+                        <strong class="display-6" >Portafolio</strong>
                         <h1>Latest Projects</h1>
                         <strong class="line">____ _ _</strong>
                         <section>
@@ -343,15 +337,16 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>    
+    <script src="js/owl.carousel.min.js"></script>  
+  
     <script>
         $(function(){
             $(document).scroll(function(){
                 var $nav = $(".fixed-top");
                 $nav.toggleClass('scrolled',$(this).scrollTop() > $nav.height());
-            });
+            });                                    
         });
-
+        
         $(document).ready(function() {
             $('.owl-carousel').owlCarousel({
 				items: 3,
